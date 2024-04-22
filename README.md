@@ -1,5 +1,6 @@
 # JSCRUD
 **GET All Todo**
+
 <code>
 fetch('https://dummyjson.com/todos')
 .then(res => res.json())
@@ -8,6 +9,7 @@ fetch('https://dummyjson.com/todos')
 </code>
 
 **Get a single todo**
+
 <code>
 fetch('https://dummyjson.com/todos/1')
 .then(res => res.json())
@@ -15,6 +17,7 @@ fetch('https://dummyjson.com/todos/1')
  </code>
  
 **Get todos by  id**
+
 <code>
 fetch('https://dummyjson.com/todos/user/5')
 .then(res => res.json())
@@ -22,6 +25,7 @@ fetch('https://dummyjson.com/todos/user/5')
 </code>
 
 **Add todo**
+
 <code>
 fetch('https://dummyjson.com/todos/add', {
   method: 'POST',
@@ -37,6 +41,7 @@ fetch('https://dummyjson.com/todos/add', {
 </code>
 
 **Update todo**
+
 <code>
 fetch('https://dummyjson.com/todos/1', {
   method: 'PUT', /* or PATCH */
@@ -50,10 +55,12 @@ fetch('https://dummyjson.com/todos/1', {
 </code>
 
 **Delete todo**
+
 <code>
 fetch('https://dummyjson.com/todos/1', {
   method: 'DELETE',
 })
-</code>
+
 .then(res => res.json())
 .then(console.log);
+</code>
