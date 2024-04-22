@@ -1,9 +1,11 @@
 # JSCRUD
 **GET All Todo**
+<code>
 fetch('https://dummyjson.com/todos')
 .then(res => res.json())
 .then(console.log);
 //.catch(error => { console.error('Error:', error) });
+</code>
 
 **Get a single todo**
 fetch('https://dummyjson.com/todos/1')
