@@ -7,17 +7,17 @@
     <title>Employee</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.min.css">
 </head>
 
 <body>
     <main id="Employee">
 
         <div class="container mt-3  mb-3">
-            <button type="button" class="btn btn-primary justify-content-end" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Launch demo modal
+            <button type="button" class="btn btn-primary justify-content-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add Product
             </button>
-            <table class="table">
+            <table class="table" id="myTable">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -37,8 +37,8 @@
                         <td class="tdBrand"></td>
                         <td class="tdCategory"></td>
                         <td class="tdAction">
-                            <a href="#" class="btn btn-primary btn-sm me-2 btnEdit">Edit</a>
-                            <a href="#" class="btn btn-danger btn-sm me-2 btnDelete">Delete</a>
+                            <a href="#" class="btn btn-primary btn-sm me-2 mb-2 btnEdit">Edit</a>
+                            <a href="#" class="btn btn-danger btn-sm me-2  mb-2 btnDelete">Delete</a>
                         </td>
                     </tr>                   
                 </tbody>
@@ -48,15 +48,38 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            ...
+                            <form role="form">
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <input type="hidden" class="form-control" id="ID">
+        
+                                        <label for="Title">Title</label>
+                                        <input type="text" class="form-control" required id="title" placeholder="Title">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="Brand">Brand</label>
+                                        <input type="text" class="form-control" required id="brand" placeholder="Brand">
+        
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="Category">Category</label>
+                                        <input type="text" class="form-control" required id="category" placeholder="Category">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="Description">Description</label>
+                                        <textarea class="form-control" required id="description" cols="5" rows="3" placeholder="Description"></textarea>
+                                        <!-- <input type="text" class="form-control" required id="description" placeholder="Description"> -->
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" id="btnAdd"  class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
@@ -67,6 +90,7 @@
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/toastr.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.min.js"></script>
     <script src="./assets/js/employee.js"></script>
 </body>
 
