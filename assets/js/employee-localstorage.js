@@ -7,29 +7,32 @@ $(() => {
 let productlist = [];
 
 var loadData = () => {
-    fetch('https://dummyjson.com/products?limit=10')
+    fetch('./assets/js/product.json')
+    //fetch('https://dummyjson.com/products?limit=10')
         .then(response => response.json())
         .then(data => {
-            localStorage.setItem("products", JSON.stringify(data.products));
+            console.log(data)
+            localStorage.setItem("products", JSON.stringify(data));
+            //localStorage.setItem("products", JSON.stringify(data.products));
             getAllData()
         })
-        .catch(error => { console.error('Error:', error) });
+        .catch(error => { console.log('Error:', error) });
 }
 
 var getAllData = () => {
     productlist = JSON.parse(localStorage.getItem('products'));
-    $(Employee).find(".table").find(".divTableRow").html('');
+    $("#Employee").find(".table").find(".divTableRow").html('');
     productlist.forEach(element => {
         var template = $(Employee).find(".table").find(".divSample").find("tr").clone()
         template.find(".tdId").html(element.id)
         template.find(".tdTitle").html(element.title)
         template.find(".tdBrand").html(element.brand)
         template.find(".tdCategory").html(element.category)
-        $(template).find(".btnEdit").attr("data-id", element.id).on("click", (e) => {
-            getByID($(e.currentTarget).attr('data-id'));
+        $(template).find(".btnEdit").on("click", (e) => {
+            getByID(element.id);
         });
-        $(template).find(".btnDelete").attr("data-id", element.id).on("click", (e) => {
-            deleleById($(e.currentTarget).attr('data-id'))
+        $(template).find(".btnDelete").on("click", (e) => {
+            deleleById(element.id)
         });
         $(Employee).find(".table").find(".divTableRow").append(template);
     });
